@@ -1,0 +1,133 @@
+/* Ensure full-page layout without vertical scrolling */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevents vertical scrollbar */
+  }
+  
+  /* Full-page container that ensures form remains centered */
+  .survey-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ensures full height */
+    padding: 20px;
+    background-color: #121212;
+    transition: margin-left 0.3s ease-in-out; /* Prevents movement when sidebar toggles */
+  }
+  
+  /* Fixed width for centering regardless of sidebar */
+  .survey-form {
+    width: 600px;
+    background-color: #1e1e1e;
+    margin-top:-50px;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(255, 119, 0, 0.2);
+    color: white;
+    text-align: center;
+    overflow: hidden; /* Ensures no internal scrollbars */
+  }
+  
+  /* Consistent Input Field Sizes */
+  .inputField {
+    width: 100%;
+    height: 45px;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ff7700;
+    border-radius: 8px;
+    background-color: #262626;
+    color: white;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+  }
+  
+  /* Description Field with Same Height as Inputs */
+  .textareaField {
+    height: 100px; /* Fixed height */
+    resize: none;
+  }
+  
+  /* Input focus effect */
+  .inputField:focus {
+    border-color: #ffac80;
+    box-shadow: 0px 0px 10px rgba(255, 172, 128, 0.5);
+  }
+  
+  /* Label Styling */
+  .survey-form label {
+    font-size: 18px;
+    font-weight: bold;
+    color: #515551;
+    display: block;
+    text-align: left;
+    margin-top: 15px;
+  }
+
+  .survey-form h1{
+    color: rgb(218, 118, 56);
+      font-family: "Sixtyfour Convergence", sans-serif;
+      font-optical-sizing:auto;
+      font-weight: 200;
+      font-style: normal;
+      font-variation-settings:
+        "BLED" 0,
+        "SCAN" 0,
+        "XELA" 0,
+        "YELA" 0;
+    
+  }
+  
+  /* Button Styles */
+  .btn-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .btn-primary,
+  .btn-secondary {
+    width: 48%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .btn-primary {
+    background-color: #b36620;
+    color: white;
+  }
+  
+  .btn-primary:hover {
+    background-color: #ff7700;
+  }
+  
+  .btn-secondary {
+    background-color: #1e1e1e;
+    color: #a0a0a0;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #333333;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 992px) {
+    .survey-form {
+      width: 75%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .survey-form {
+      width: 90%;
+      padding: 30px;
+    }
+  }
+  

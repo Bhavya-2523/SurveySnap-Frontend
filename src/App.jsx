@@ -1,0 +1,69 @@
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import { UserSidebar } from './components/layouts/UserSidebar'
+// import './App.css'
+import "./assets/adminlte.css"
+import "./assets/adminlte.min.css"
+import { Route, Routes } from 'react-router-dom'
+import { UserProfile } from './components/user/UserProfile'
+import { Login } from './components/common/Login'
+import { Signup } from './components/common/Signup'
+import { Signup2 } from './components/common/signup2'
+import { DemoSidebar } from './components/admin/DemoSidebar'
+import { DemoProfile } from './components/admin/DemoProfile'
+import axios from 'axios'
+import { Login2 } from './components/common/Login2'
+import PrivateRoutes from "./hooks/PrivateRoutes";
+import LandingPage from "./components/common/LandingPage";
+import {SurveySidebar} from "./components/layouts/SurveySidebar"
+import {CreateSurvey} from "./components/survey/CreateSurvey";
+import { CreateSurvey2 } from './components/survey/CreateSurvey2'
+import { ViewMySurveys } from './components/survey/ViewMySurveys'
+
+
+function App() {
+
+  axios.defaults.baseURL = "http://localhost:3000"
+  
+  
+  return (
+   
+    <> 
+     <Routes>
+      <Route path='/login' element={<Login/>}></Route>
+      <Route path='/login2' element={<Login2/>}></Route>
+      <Route path='/signup' element={<Signup/>}></Route>
+      <Route path='/signup2' element={<Signup2/>}></Route>
+      <Route path="/" element ={<LandingPage/>}></Route>
+    </Routes>  
+    <body class="layout-fixed sidebar-expand-lg bg-body-tertiary app-loaded sidebar-open">
+    <div className="app-wrapper">
+      {/* <UserSidebar></UserSidebar>\ */}
+
+      
+      <Routes>
+      <Route path="" element={<PrivateRoutes />}>
+        <Route path='/user' element={<UserSidebar/>}>
+          <Route path='profile' element={<UserProfile/>}></Route>
+        </Route>
+        <Route path='/Demouser' element={<DemoSidebar/>}>
+          <Route path='profile' element={<DemoProfile/>}></Route>
+          {/* <Route path='survey' element={<CreateSurvey/>}></Route> */}
+        </Route>
+        <Route path="/survey" element={<SurveySidebar />}>
+            <Route path="addsurvey" element={<CreateSurvey/>} />
+            <Route path="addsurvey2" element={<CreateSurvey2/>} />
+            <Route path="mysurveys" element ={<ViewMySurveys/>}></Route>
+        </Route>
+      </Route>
+      </Routes>
+
+    </div>
+   </body>
+   </>
+
+  )
+}
+
+export default App
