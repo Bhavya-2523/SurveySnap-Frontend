@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 export const ViewMySurveys = () => {
     const [screens, setscreens] = useState([]);
@@ -25,6 +26,12 @@ export const ViewMySurveys = () => {
         }
     };
 
+    const navigate = useNavigate(); // Add useNavigate hook
+
+    const handleUpdateClick = (surveyId) => {
+        navigate(`/survey/update/${surveyId}`); // Redirect to UpdateSurvey page
+    };
+    
     useEffect(() => {
         getAllMySurveys();
     }, []);
@@ -165,7 +172,7 @@ export const ViewMySurveys = () => {
                                                 <button className="btn-custom btn-view">
                                                     View Details
                                                 </button>
-                                                <button className="btn-custom btn-update">
+                                                <button className="btn-custom btn-update" onClick={() => handleUpdateClick(survey._id)}>
                                                     Update
                                                 </button>
                                             </div>

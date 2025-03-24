@@ -57,7 +57,7 @@ export const SurveySidebar = () => {
                   </Link>
                   <ul className="nav nav-treeview">
                     <li className="nav-item">
-                      <Link to="/user" className="nav-link active" style={{ color: "#ff7700" }}>
+                      <Link to="/survey/mysurveys" className="nav-link active" style={{ color: "#ff7700" }}>
                         <i className="nav-icon bi bi-speedometer" />
                         <p>
                           View My Survey

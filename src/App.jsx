@@ -20,6 +20,9 @@ import {SurveySidebar} from "./components/layouts/SurveySidebar"
 import {CreateSurvey} from "./components/survey/CreateSurvey";
 import { CreateSurvey2 } from './components/survey/CreateSurvey2'
 import { ViewMySurveys } from './components/survey/ViewMySurveys'
+import { UpdateSurvey } from './components/survey/UpdateSurvey'
+import { ResetPassword } from './components/common/ResetPassword'
+import ForgotPassword from './components/common/ForgotPassword'
 
 
 function App() {
@@ -31,11 +34,13 @@ function App() {
    
     <> 
      <Routes>
+     <Route path="/" element ={<LandingPage/>}></Route>
       <Route path='/login' element={<Login/>}></Route>
       <Route path='/login2' element={<Login2/>}></Route>
       <Route path='/signup' element={<Signup/>}></Route>
       <Route path='/signup2' element={<Signup2/>}></Route>
-      <Route path="/" element ={<LandingPage/>}></Route>
+      <Route path="/forgotpassword" element={<ForgotPassword/>}></Route>
+      <Route path="/resetpassword/:token" element ={<ResetPassword/>}></Route>
     </Routes>  
     <body class="layout-fixed sidebar-expand-lg bg-body-tertiary app-loaded sidebar-open">
     <div className="app-wrapper">
@@ -55,7 +60,8 @@ function App() {
             <Route path="addsurvey" element={<CreateSurvey/>} />
             <Route path="addsurvey2" element={<CreateSurvey2/>} />
             <Route path="mysurveys" element ={<ViewMySurveys/>}></Route>
-        </Route>
+            <Route path="update/:id" element={<UpdateSurvey />} />
+            </Route>
       </Route>
       </Routes>
 
