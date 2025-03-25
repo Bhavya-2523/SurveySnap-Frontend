@@ -1,12 +1,26 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export const SurveyNavbar = ({ toggleSidebar }) => {
+
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+  // localStorage.removeItem("authToken");
+  // localStorage.removeItem("user");
+  localStorage.removeItem("id");
+  localStorage.removeItem("role");
+  sessionStorage.clear();
+  navigate("/login"); 
+  };
+
+
   return (
     <nav
       className="app-header navbar navbar-expand"
       style={{
-        backgroundColor: "#282828", // Dark gray background
-        color: "#ff7700", // Orange text color
+        backgroundColor: "#282828",
+        color: "#ff7700",
       }}
     >
       <div className="container-fluid">
@@ -79,13 +93,15 @@ export const SurveyNavbar = ({ toggleSidebar }) => {
           <li className="nav-item">
             <button
               className="btn btn-danger"
+              onClick = {handleLogout}
+
               style={{
                 backgroundColor: "#ff7700", // Orange background
                 color: "#282828", // Dark gray text
                 border: "none",
               }}
             >
-              LOGOUT
+             LOGOUT
             </button>
           </li>
         </ul>

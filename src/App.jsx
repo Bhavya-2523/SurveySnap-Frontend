@@ -23,6 +23,7 @@ import { ViewMySurveys } from './components/survey/ViewMySurveys'
 import { UpdateSurvey } from './components/survey/UpdateSurvey'
 import { ResetPassword } from './components/common/ResetPassword'
 import ForgotPassword from './components/common/ForgotPassword'
+import Home from './components/common/HomePage'
 
 
 function App() {
@@ -34,7 +35,9 @@ function App() {
    
     <> 
      <Routes>
-     <Route path="/" element ={<LandingPage/>}></Route>
+     <Route path="/1" element ={<LandingPage/>}></Route>
+     <Route path="/" element={<Home />} />
+
       <Route path='/login' element={<Login/>}></Route>
       <Route path='/login2' element={<Login2/>}></Route>
       <Route path='/signup' element={<Signup/>}></Route>
