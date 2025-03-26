@@ -1,0 +1,223 @@
+/* Participate.css */
+.participate-container {
+    padding: 2rem;
+    background-color: #121212;
+    min-height: 100vh;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #ff7700;
+    font-family: 'Sixtyfour Convergence', sans-serif;
+    border-bottom: 2px solid #ff7700;
+    padding-bottom: 0.5rem;
+    flex-shrink: 0;
+}
+
+.spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+}
+
+.survey-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+    overflow-y: auto;
+    padding: 1rem;
+    flex-grow: 1;
+    max-height: 70vh;
+    scrollbar-gutter: stable;
+}
+
+/* Custom Scrollbar */
+.survey-grid::-webkit-scrollbar {
+    width: 8px;
+}
+
+.survey-grid::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #ff7700, #ff4500);
+    border-radius: 10px;
+}
+
+.survey-grid::-webkit-scrollbar-track {
+    background: #1e1e1e;
+    border-radius: 10px;
+}
+
+/* Card Styling */
+.survey-card {
+    background-color: #1e1e1e !important;
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-height: 220px;
+    box-shadow: 0 4px 10px rgba(255, 119, 0, 0.1);
+    cursor: pointer;
+    color: #fff;
+    text-align: left;
+}
+
+.survey-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(255, 119, 0, 0.3);
+}
+
+/* Card Content Layout */
+.survey-card .MuiCardContent-root {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-bottom: 2.5rem !important;
+}
+
+/* Title Styling */
+.card-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #ff7700;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* padding: 0 !important; */
+}
+
+/* Description Styling */
+.card-text {
+    color: #ac9e9e;
+    font-size: 1rem;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    flex-grow: 1;
+    margin: 0.5rem 0 !important;
+}
+
+/* Participate Button */
+.btn-participate {
+    background-color: #ff7700;
+    color: #ffffff;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 8px;
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+    transition: background 0.3s ease;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.btn-participate:hover {
+    background-color: #ff4500;
+}
+
+/* Modal Styling */
+.modal-content {
+    background-color: #1e1e1e;
+    border: 1px solid #ff7700;
+    border-radius: 12px;
+}
+
+.modal-header {
+    border-bottom: 1px solid #262626;
+    padding: 1.5rem;
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    color: #ff7700;
+}
+
+.modal-body {
+    max-height: 60vh;
+    overflow-y: auto;
+    padding: 1.5rem;
+}
+
+.modal-footer {
+    border-top: 1px solid #262626;
+    padding: 1rem 1.5rem;
+}
+
+/* Question Styling */
+.question-item {
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    background-color: #262626;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.question-item:hover {
+    background-color: #2e2e2e;
+}
+
+/* Form Styling */
+.form-label {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+    display: block;
+    color: #fff;
+}
+
+.form-control {
+    background-color: #2e2e2e;
+    border: 1px solid #3e3e3e;
+    color: #fff;
+    padding: 0.75rem;
+    border-radius: 6px;
+}
+
+.form-control:focus {
+    background-color: #2e2e2e;
+    border-color: #ff7700;
+    box-shadow: 0 0 0 0.2rem rgba(255, 119, 0, 0.25);
+}
+
+.form-check {
+    margin-bottom: 0.5rem;
+}
+
+.form-check-label {
+    color: #fff;
+}
+
+.form-check-input:checked {
+    background-color: #ff7700;
+    border-color: #ff7700;
+}
+
+/* Submit Button */
+.submit-button {
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-radius: 8px;
+    background-color: #ff7700;
+    color: #fff;
+    border: none;
+    transition: background 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #ff4500;
+}

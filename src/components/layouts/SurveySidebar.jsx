@@ -69,13 +69,13 @@ export const SurveySidebar = () => {
                 </li>
 
                 <li className="nav-item">
-                  <a href="#" className="nav-link" style={{ color: "#ff7700" }}>
+                  <Link to="/survey/participate" className="nav-link" style={{ color: "#ff7700" }}>
                     <i className="nav-icon bi bi-box-seam-fill" />
                     <p>
-                      Widgets
+                      Participate
                       <i className="nav-arrow bi bi-chevron-right" />
                     </p>
-                  </a>
+                  </Link>
                   <ul className="nav nav-treeview">
                     <li className="nav-item">
                       <a href="./widgets/small-box.html" className="nav-link" style={{ color: "#ff7700" }}>

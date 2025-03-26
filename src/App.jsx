@@ -24,6 +24,7 @@ import { UpdateSurvey } from './components/survey/UpdateSurvey'
 import { ResetPassword } from './components/common/ResetPassword'
 import ForgotPassword from './components/common/ForgotPassword'
 import Home from './components/common/HomePage'
+import { Participate } from './components/user/Participate'
 
 
 function App() {
@@ -64,6 +65,7 @@ function App() {
             <Route path="addsurvey2" element={<CreateSurvey2/>} />
             <Route path="mysurveys" element ={<ViewMySurveys/>}></Route>
             <Route path="update/:id" element={<UpdateSurvey />} />
+            <Route path="participate" element={<Participate />} />
             </Route>
       </Route>
       </Routes>
