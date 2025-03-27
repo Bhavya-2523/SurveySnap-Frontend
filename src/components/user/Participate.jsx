@@ -30,13 +30,8 @@ export const Participate = () => {
         fetchSurveys();
     }, []);
 
-    // const handleParticipateClick = (survey) => {
-    //     setSelectedSurvey(survey);
-    //     setAnswers({});
-    //     setShowModal(true);
-    // };
     const handleParticipateClick = (survey) => {
-        navigate(`/respond/${survey._id}`);
+        navigate(`/survey/response/${survey._id}`);
     };
 
     return (

@@ -25,6 +25,7 @@ import { ResetPassword } from './components/common/ResetPassword'
 import ForgotPassword from './components/common/ForgotPassword'
 import Home from './components/common/HomePage'
 import { Participate } from './components/user/Participate'
+import { Responding } from './components/user/Responding'
 
 
 function App() {
@@ -58,7 +59,6 @@ function App() {
         </Route>
         <Route path='/Demouser' element={<DemoSidebar/>}>
           <Route path='profile' element={<DemoProfile/>}></Route>
-          {/* <Route path='survey' element={<CreateSurvey/>}></Route> */}
         </Route>
         <Route path="/survey" element={<SurveySidebar />}>
             <Route path="addsurvey" element={<CreateSurvey/>} />
@@ -66,7 +66,9 @@ function App() {
             <Route path="mysurveys" element ={<ViewMySurveys/>}></Route>
             <Route path="update/:id" element={<UpdateSurvey />} />
             <Route path="participate" element={<Participate />} />
-            </Route>
+            {/* <Route path="response/:id" element={<Responding/>}></Route> */}
+            <Route path="response/:id" element={<Responding/>}></Route>
+          </Route>
       </Route>
       </Routes>
 
