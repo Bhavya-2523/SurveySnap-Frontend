@@ -31,6 +31,9 @@ export const ViewMySurveys = () => {
     const handleUpdateClick = (surveyId) => {
         navigate(`/survey/update/${surveyId}`); // Redirect to UpdateSurvey page
     };
+    const handleDetailsClick = (surveyId) => {
+        navigate(`/survey/details/${surveyId}`); // Redirect to UpdateSurvey page
+    };
     
     useEffect(() => {
         getAllMySurveys();
@@ -100,7 +103,7 @@ export const ViewMySurveys = () => {
                         borderBottom: '2px solid #ff7700',
                         paddingBottom: '0.5rem'
                     }}>
-                        MY SCREENS
+                        MY SURVEYS
                     </h2>
         
                     <div className="row g-4">
@@ -169,7 +172,7 @@ export const ViewMySurveys = () => {
 
                                             {/* 📌 Buttons */}
                                             <div className="mt-3 d-flex justify-content-between">
-                                                <button className="btn-custom btn-view">
+                                                <button className="btn-custom btn-view"onClick={() => handleDetailsClick(survey._id)}>
                                                     View Details
                                                 </button>
                                                 <button className="btn-custom btn-update" onClick={() => handleUpdateClick(survey._id)}>

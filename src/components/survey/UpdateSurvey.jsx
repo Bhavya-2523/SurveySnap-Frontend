@@ -137,12 +137,6 @@ export const UpdateSurvey = () => {
                                     {questions.length === 0 ? (
                                         <p>No questions found for this survey.</p>
                                     ) : (
-                                        // questions.map((question, index) => (
-                                        //     <div key={question._id} className="question-item">
-                                        //         <strong>Q{index + 1}:</strong> {question.questionText}
-                                        //         <p><i>Type: {question.questionType}</i></p>
-                                        //     </div>
-                                        // ))
                                         questions.map((question, index) => (
                                             <div key={question._id} className="question-item">
                                               <div className="question-header">

@@ -1,0 +1,126 @@
+/* ViewDetails.css */
+.view-survey-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-color: #121212;
+}
+
+.view-survey-form {
+    width: 700px;
+    max-height: 90vh;
+    background-color: #1e1e1e;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(255, 119, 0, 0.2);
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.view-content {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 15px;
+}
+
+/* Custom scrollbar (same as UpdateSurvey) */
+.view-content::-webkit-scrollbar {
+    width: 4px;
+}
+
+.view-content::-webkit-scrollbar-thumb {
+    background: #ff7700;
+    border-radius: 4px;
+}
+
+.view-content::-webkit-scrollbar-track {
+    background: #262626;
+}
+
+.detail-field {
+    width: 100%;
+    padding: 12px;
+    margin: 5px 0 15px;
+    border: 1px solid #333;
+    border-radius: 8px;
+    background-color: #262626;
+    color: #d4d4d4;
+    font-size: 16px;
+    text-align: left;
+    min-height: 45px;
+}
+
+.detail-textarea {
+    height: auto;
+    min-height: 100px;
+    white-space: pre-wrap;
+}
+
+.back-button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    background-color: #333333;
+    color: #a0a0a0;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.back-button:hover {
+    background-color: #404040;
+    color: #ffffff;
+}
+
+/* Question styles */
+.question-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.view-options-btn {
+    background: none;
+    border: 1px solid #ff7700;
+    color: #ff7700;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.view-options-btn:hover {
+    background: #ff7700;
+    color: white;
+}
+
+.question-options {
+    margin: 10px 0;
+    padding: 10px;
+    background: #262626;
+    border-radius: 6px;
+}
+
+.question-options ul {
+    list-style: none;
+    padding: 0;
+    margin: 5px 0;
+}
+
+.question-options li {
+    padding: 5px 0;
+    color: #ccc;
+}
+
+.loading-spinner {
+    color: #ff7700;
+    font-size: 18px;
+    padding: 20px;
+}
