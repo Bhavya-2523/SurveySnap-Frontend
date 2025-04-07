@@ -139,8 +139,9 @@ export const Responding = () => {
                     return axios.post("/answer/", payload);
                 })
             );
-
-            navigate(`/survey/response/success`);
+            
+            alert("Your responses have been submitted successfully!");
+            navigate(`/survey/participate`);
         } catch (err) {
             let errorMessage = "Submission failed. Please try again.";
             if (err.response) {

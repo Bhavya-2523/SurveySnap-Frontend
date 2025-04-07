@@ -27,6 +27,7 @@ import Home from './components/common/HomePage'
 import { Participate } from './components/user/Participate'
 import { Responding } from './components/user/Responding'
 import { ViewDetails } from './components/survey/ViewDetails'
+import { ViewAnalytics } from './components/user/ViewAnalytics'
 
 
 function App() {
@@ -70,6 +71,7 @@ function App() {
             <Route path="participate" element={<Participate />} />
             {/* <Route path="response/:id" element={<Responding/>}></Route> */}
             <Route path="response/:id" element={<Responding/>}></Route>
+            <Route path="analytics/:id" element={<ViewAnalytics />} />
           </Route>
       </Route>
       </Routes>

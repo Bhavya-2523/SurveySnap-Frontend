@@ -45,10 +45,7 @@ export const Login2 = () => {
       } else {
         alert("Login failed! Check your credentials.");
       }
-   
-  };
-  
-
+}
   const validationSchema = {
     EmailValidator: {
       required: {

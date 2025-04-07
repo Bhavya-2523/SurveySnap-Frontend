@@ -1,126 +1,121 @@
-import React from 'react'
-import { UserNavbar } from './UserNavbar'
-import { Outlet } from 'react-router-dom'
+import React, { useState } from "react";
+import { Link, Outlet } from "react-router-dom";
+import { SurveyNavbar } from "./SurveyNavbar";
 
 export const UserSidebar = () => {
-  return (
-    <>
-    <UserNavbar></UserNavbar>
-        <aside
-        className="app-sidebar bg-body-secondary shadow"
-        data-bs-theme="dark"
-      >
-        <div className="sidebar-brand">
-          
-          <a href="./index.html" className="brand-link">
-            
-            <img
-              src="../../dist/assets/img/AdminLTELogo.png"
-              alt="AdminLTE Logo"
-              className="brand-image opacity-75 shadow"
-            />
-            
-            <span className="brand-text fw-light">AdminLTE 4</span>
-            
-          </a>
-          
-        </div>
+  const [isSidebarOpen, setSidebarOpen] = useState(true);
 
-        <div
-          className=""
-          data-overlayscrollbars-viewport="scrollbarHidden overflowXHidden overflowYScroll"
-          tabIndex={-1}
+  const toggleSidebar = () => {
+    setSidebarOpen(!isSidebarOpen);
+  };
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column", height: "100vh" }}>
+      {/* Navbar */}
+      <SurveyNavbar toggleSidebar={toggleSidebar} />
+
+      {/* Sidebar and Main Content */}
+      <div style={{ display: "flex", flexDirection: "row", flex: 1 }}>
+        {/* Sidebar */}
+        <aside
+          className={`app-sidebar shadow ${isSidebarOpen ? "open" : "d-none"}`}
           style={{
-            marginRight: "-16px",
-            marginBottom: "-16px",
-            marginLeft: 0,
-            top: "-8px",
-            right: "auto",
-            left: "-8px",
-            width: "calc(100% + 16px)",
-            padding: 8,
+            width: "250px",
+            height: "100vh",
+            overflowY: "auto",
+            backgroundColor: "#282828", // Dark gray background
+            color: "#ff7700", // Orange text color
+            boxShadow: "2px 0 5px rgba(0, 0, 0, 0.1)",
           }}
         >
-          <nav className="mt-2">
-            
-            <ul
-              className="nav sidebar-menu flex-column"
-              data-lte-toggle="treeview"
-              role="menu"
-              data-accordion="false"
-            >
-              <li className="nav-item menu-open">
-                <a href="#" className="nav-link active">
-                  <i className="nav-icon bi bi-speedometer" />
-                  <p>
-                    Dashboard
-                    <i className="nav-arrow bi bi-chevron-right" />
-                  </p>
-                </a>
-                <ul className="nav nav-treeview">
-                  <li className="nav-item">
-                    <a href="./index.html" className="nav-link active">
-                      <i className="nav-icon bi bi-circle" />
-                      <p>Dashboard v1</p>
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a href="./index2.html" className="nav-link">
-                      <i className="nav-icon bi bi-circle" />
-                      <p>Dashboard v2</p>
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a href="./index3.html" className="nav-link">
-                      <i className="nav-icon bi bi-circle" />
-                      <p>Dashboard v3</p>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li className="nav-item">
-                <a href="./generate/theme.html" className="nav-link">
-                  <i className="nav-icon bi bi-palette" />
-                  <p>Theme Generate</p>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a href="#" className="nav-link">
-                  <i className="nav-icon bi bi-box-seam-fill" />
-                  <p>
-                    Widgets
-                    <i className="nav-arrow bi bi-chevron-right" />
-                  </p>
-                </a>
-                <ul className="nav nav-treeview">
-                  <li className="nav-item">
-                    <a href="./widgets/small-box.html" className="nav-link">
-                      <i className="nav-icon bi bi-circle" />
-                      <p>Small Box</p>
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a href="./widgets/info-box.html" className="nav-link">
-                      <i className="nav-icon bi bi-circle" />
-                      <p>info Box</p>
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a href="./widgets/cards.html" className="nav-link">
-                      <i className="nav-icon bi bi-circle" />
-                      <p>Cards</p>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-            
-          </nav>
-        </div>
+          
+          <div
+            style={{
+              marginRight: "-16px",
+              marginBottom: "-16px",
+              marginLeft: 0,
+              top: "-8px",
+              right: "auto",
+              left: "-8px",
+              width: "calc(100% + 16px)",
+              padding: 8,
+            }}
+          >
+            <nav className="mt-2">
+              <ul
+                className="nav sidebar-menu flex-column"
+                data-lte-toggle="treeview"
+                role="menu"
+                data-accordion="false"
+              >
+                <li className="nav-item menu-open">
+                  <Link to="/user/profile" className="nav-link active" style={{ color: "#ff7700" }}>
+                    <i className="nav-icon bi bi-speedometer" />
+                    <p>
+                      Profile
+                    </p>
+                  </Link>
+                  <Link to="/survey/addSurvey" className="nav-link active" style={{ color: "#ff7700" }}>
+                    <i className="nav-icon bi bi-speedometer" />
+                    <p>
+                      Add Survey
+                    </p>
+                  </Link>
+                  <ul className="nav nav-treeview">
+                    <li className="nav-item">
+                      <Link to="/survey/mysurveys" className="nav-link active" style={{ color: "#ff7700" }}>
+                        <i className="nav-icon bi bi-speedometer" />
+                        <p>
+                          View My Survey
+                          <i className="nav-arrow bi bi-chevron-right" />
+                        </p>
+                      </Link>
+                    </li>
+                  </ul>
+                </li>
+
+                <li className="nav-item">
+                  <Link to="/survey/participate" className="nav-link" style={{ color: "#ff7700" }}>
+                    <i className="nav-icon bi bi-box-seam-fill" />
+                    <p>
+                      Participate
+                      <i className="nav-arrow bi bi-chevron-right" />
+                    </p>
+                  </Link>
+                  <ul className="nav nav-treeview">
+                    <li className="nav-item">
+                      <a href="./widgets/small-box.html" className="nav-link" style={{ color: "#ff7700" }}>
+                        <i className="nav-icon bi bi-circle" />
+                        <p>Small Box</p>
+                      </a>
+                    </li>
+                    <li className="nav-item">
+                      <a href="./widgets/info-box.html" className="nav-link" style={{ color: "#ff7700" }}>
+                        <i className="nav-icon bi bi-circle" />
+                        <p>info Box</p>
+                      </a>
+                    </li>
+                    <li className="nav-item">
+                      <a href="./widgets/cards.html" className="nav-link" style={{ color: "#ff7700" }}>
+                        <i className="nav-icon bi bi-circle" />
+                        <p>Cards</p>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
         </aside>
-        <main class="app-main">
-            <Outlet></Outlet>
+
+        {/* Main Content */}
+        <main
+          className="app-main"
+          style={{ flex: 1, overflowY: "auto", padding: "0px" }}
+        >
+          <Outlet />
         </main>
-    </>
-  )
-}
+      </div>
+    </div>
+  );
+};
