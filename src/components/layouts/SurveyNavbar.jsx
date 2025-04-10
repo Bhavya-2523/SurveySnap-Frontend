@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const SurveyNavbar = ({ toggleSidebar }) => {
 
@@ -67,9 +67,9 @@ export const SurveyNavbar = ({ toggleSidebar }) => {
         {/* Move "Home" and "Contact" to the right corner */}
         <ul className="navbar-nav ms-auto">
           <li className="nav-item d-none d-md-block">
-            <a href="#" className="nav-link" style={{ color: "#ff7700" }}>
+            <Link to="/" className="nav-link" style={{ color: "#ff7700" }}>
               Home
-            </a>
+            </Link>
           </li>
           <li className="nav-item d-none d-md-block">
             <a href="#" className="nav-link" style={{ color: "#ff7700" }}>

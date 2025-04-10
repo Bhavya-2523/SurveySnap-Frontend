@@ -27,7 +27,6 @@ export const ViewAnalytics = () => {
         const fetchAnalytics = async () => {
             try {
                 setLoading(true);
-
                 const [questionRes, answerRes] = await Promise.all([
                     axios.get(`/question/questionsBySurveyId/${id}`),
                     axios.get(`/answer/answers/${id}`),
@@ -35,7 +34,6 @@ export const ViewAnalytics = () => {
 
                 setQuestions(questionRes.data.data);
                 setAnswers(answerRes.data.answers);
-
             } catch (err) {
                 console.error(err);
                 setError("Failed to load analytics. Please try again later.");
@@ -96,7 +94,6 @@ export const ViewAnalytics = () => {
         questionAnswers.forEach(answer => {
             const value = answer.ratingValue;
             if (!value) return;
-
             counts[value] = (counts[value] || 0) + 1;
             total += 1;
             sum += value;
@@ -122,11 +119,31 @@ export const ViewAnalytics = () => {
         );
     };
 
+    // ✅ Grouped frequency for Short Answer / Text
     const renderTextResponses = (questionAnswers) => {
+        const counts = {};
+
+        questionAnswers.forEach(ans => {
+            const rawText = ans.answerText || ans.selectedOption;
+            const text = rawText?.trim().toLowerCase();
+            if (!text) return;
+            counts[text] = (counts[text] || 0) + 1;
+        });
+
+        const sortedEntries = Object.entries(counts)
+            .sort((a, b) => b[1] - a[1])
+            .slice(0, 5); // Top 5
+
+        if (sortedEntries.length === 0) {
+            return <p>No valid responses.</p>;
+        }
+
         return (
             <ul className="text-response-list">
-                {questionAnswers.map((ans, i) => (
-                    <li key={i}>"{ans.answerText || ans.selectedOption || 'No response'}"</li>
+                {sortedEntries.map(([response, count], i) => (
+                    <li key={i}>
+                        "{response}" — <strong>{count}</strong> {count === 1 ? 'vote' : 'votes'}
+                    </li>
                 ))}
             </ul>
         );

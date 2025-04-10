@@ -50,7 +50,8 @@ export const SurveySidebar = () => {
               >
                 <li className="nav-item menu-open">
                   <Link to="/survey/addSurvey" className="nav-link active" style={{ color: "#ff7700" }}>
-                    <i className="nav-icon bi bi-speedometer" />
+                  <i className="nav-icon bi bi-file-earmark-plus" />
+
                     <p>
                       Add Survey
                     </p>
@@ -58,10 +59,10 @@ export const SurveySidebar = () => {
                   <ul className="nav nav-treeview">
                     <li className="nav-item">
                       <Link to="/survey/mysurveys" className="nav-link active" style={{ color: "#ff7700" }}>
-                        <i className="nav-icon bi bi-speedometer" />
+                      <i className="nav-icon bi bi-journal-text" />
+
                         <p>
                           View My Survey
-                          <i className="nav-arrow bi bi-chevron-right" />
                         </p>
                       </Link>
                     </li>
@@ -70,10 +71,17 @@ export const SurveySidebar = () => {
 
                 <li className="nav-item">
                   <Link to="/survey/participate" className="nav-link" style={{ color: "#ff7700" }}>
-                    <i className="nav-icon bi bi-box-seam-fill" />
+                  <i className="nav-icon bi bi-pencil-square" />
+
                     <p>
                       Participate
-                      <i className="nav-arrow bi bi-chevron-right" />
+                    </p>
+                  </Link>
+                  <Link to="/survey/participated" className="nav-link" style={{ color: "#ff7700" }}>
+                  <i className="nav-icon bi bi-check2-square" />
+
+                    <p>
+                      Participated Surveys                   
                     </p>
                   </Link>
                   <ul className="nav nav-treeview">
