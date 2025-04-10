@@ -14,8 +14,8 @@ export const ParticipatedSurveys = () => {
             setLoading(true);
             setError(null);
 
-            const user = JSON.parse(localStorage.getItem("user"));
-            const userId = user?._id;
+            const userId = localStorage.getItem("id");
+
             const key = `surveyId_${userId}`;
             const surveyIds = JSON.parse(localStorage.getItem(key) || "[]");
 

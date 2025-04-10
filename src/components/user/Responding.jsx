@@ -140,16 +140,16 @@ export const Responding = () => {
                 })
             );
 
-            // const user = JSON.parse(localStorage.getItem("user"));
-            // const userId = user?._id;
-            // if (userId) {
-            //     const key = `surveyId_${userId}`;
-            //     const previous = JSON.parse(localStorage.getItem(key) || "[]");
-            //     if (!previous.includes(id)) {
-            //         previous.push(id);
-            //         localStorage.setItem(key, JSON.stringify(previous));
-            //     }
-            // }
+            const userId = localStorage.getItem("id");
+
+            if (userId) {
+                const key = `surveyId_${userId}`;
+                const previous = JSON.parse(localStorage.getItem(key) || "[]");
+                if (!previous.includes(id)) {
+                    previous.push(id);
+                    localStorage.setItem(key, JSON.stringify(previous));
+                }
+            }
             
             alert("Your responses have been submitted successfully!");
             navigate(`/survey/analytics/${id}`);
