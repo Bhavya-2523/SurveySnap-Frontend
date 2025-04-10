@@ -150,26 +150,28 @@ export const ViewAnalytics = () => {
     return (
         <div className="analytics-container">
             <h1>Survey Analytics</h1>
-            {questions.map((question, index) => {
-                const questionAnswers = groupedAnswers[question._id] || [];
+            <div className="analytics-scrollable">
+                {questions.map((question, index) => {
+                    const questionAnswers = groupedAnswers[question._id] || [];
 
-                return (
-                    <div className="question-analytics" key={question._id}>
-                        <h2>Q{index + 1}: {question.questionText}</h2>
-                        <p className="question-type">Type: {question.questionType}</p>
+                    return (
+                        <div className="question-analytics" key={question._id}>
+                            <h2>Q{index + 1}: {question.questionText}</h2>
+                            <p className="question-type">Type: {question.questionType}</p>
 
-                        {questionAnswers.length === 0 ? (
-                            <p>No responses yet.</p>
-                        ) : question.questionType === "Text" || question.questionType === "Short Answer" ? (
-                            renderTextResponses(questionAnswers)
-                        ) : question.questionType === "Rating Scale" ? (
-                            renderRatingChart(questionAnswers)
-                        ) : (
-                            renderChartForOptions(question, questionAnswers)
-                        )}
-                    </div>
-                );
-            })}
+                            {questionAnswers.length === 0 ? (
+                                <p>No responses yet.</p>
+                            ) : question.questionType === "Text" || question.questionType === "Short Answer" ? (
+                                renderTextResponses(questionAnswers)
+                            ) : question.questionType === "Rating Scale" ? (
+                                renderRatingChart(questionAnswers)
+                            ) : (
+                                renderChartForOptions(question, questionAnswers)
+                            )}
+                        </div>
+                    );
+                })}
+            </div>
         </div>
     );
 };

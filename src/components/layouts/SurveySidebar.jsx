@@ -105,7 +105,7 @@ export const SurveySidebar = () => {
         {/* Main Content */}
         <main
           className="app-main"
-          style={{ flex: 1, overflowY: "auto", padding: "0px" }}
+          style={{ flex: 1, overflowY: "auto", padding: "0px",backgroundColor:" #121212"  }}
         >
           <Outlet />
         </main>

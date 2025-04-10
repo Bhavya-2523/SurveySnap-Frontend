@@ -28,6 +28,7 @@ import { Participate } from './components/user/Participate'
 import { Responding } from './components/user/Responding'
 import { ViewDetails } from './components/survey/ViewDetails'
 import { ViewAnalytics } from './components/user/ViewAnalytics'
+import { ParticipatedSurveys } from './components/user/ParticipatedSurveys'
 
 
 function App() {
@@ -72,6 +73,7 @@ function App() {
             {/* <Route path="response/:id" element={<Responding/>}></Route> */}
             <Route path="response/:id" element={<Responding/>}></Route>
             <Route path="analytics/:id" element={<ViewAnalytics />} />
+            <Route path="participated" element={<ParticipatedSurveys />} />
           </Route>
       </Route>
       </Routes>
