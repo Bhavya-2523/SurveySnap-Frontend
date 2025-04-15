@@ -63,7 +63,7 @@ export const AdminSidebar = () => {
                   </Link>
                   <ul className="nav nav-treeview">
                     <li className="nav-item">
-                      <Link to="" className="nav-link active" style={{ color: "#ff7700" }}>
+                      <Link to="/admin/UserManage" className="nav-link active" style={{ color: "#ff7700" }}>
                         <i className="nav-icon bi bi-speedometer" />
                         <p>
                           User Management
