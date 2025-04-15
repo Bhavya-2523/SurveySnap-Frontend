@@ -10,8 +10,6 @@ import { UserProfile } from './components/user/UserProfile'
 import { Login } from './components/common/Login'
 import { Signup } from './components/common/Signup'
 import { Signup2 } from './components/common/signup2'
-import { DemoSidebar } from './components/admin/DemoSidebar'
-import { DemoProfile } from './components/admin/DemoProfile'
 import axios from 'axios'
 import { Login2 } from './components/common/Login2'
 import PrivateRoutes from "./hooks/PrivateRoutes";
@@ -29,6 +27,9 @@ import { Responding } from './components/user/Responding'
 import { ViewDetails } from './components/survey/ViewDetails'
 import { ViewAnalytics } from './components/user/ViewAnalytics'
 import { ParticipatedSurveys } from './components/user/ParticipatedSurveys'
+import { AdminSidebar } from './components/admin/AdminSidebar'
+import { AdminProfile } from './components/admin/AdminProfile'
+import AdminDashboard from './components/admin/AdminDashboard'
 
 
 function App() {
@@ -60,8 +61,13 @@ function App() {
         <Route path='/user' element={<UserSidebar/>}>
           <Route path='profile' element={<UserProfile/>}></Route>
         </Route>
-        <Route path='/Demouser' element={<DemoSidebar/>}>
+        {/* <Route path='/Demouser' element={<DemoSidebar/>}>
           <Route path='profile' element={<DemoProfile/>}></Route>
+        </Route> */}
+        <Route path='/admin' element={<AdminSidebar/>}>
+          <Route path='profile' element={<AdminProfile/>}></Route>
+          <Route path='dashboard' element={<AdminDashboard/>}></Route>
+
         </Route>
         <Route path="/survey" element={<SurveySidebar />}>
             <Route path="addsurvey" element={<CreateSurvey/>} />

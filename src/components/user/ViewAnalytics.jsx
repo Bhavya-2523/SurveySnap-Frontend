@@ -29,7 +29,7 @@ export const ViewAnalytics = () => {
                 setLoading(true);
                 const [questionRes, answerRes] = await Promise.all([
                     axios.get(`/question/questionsBySurveyId/${id}`),
-                    axios.get(`/answer/answers/${id}`),
+                    axios.get(`/answer/answers`),
                 ]);
 
                 setQuestions(questionRes.data.data);

@@ -7,12 +7,9 @@ import { useNavigate } from 'react-router-dom';
 
 export const Participate = () => {
     const [surveys, setSurveys] = useState([]);
-    const [selectedSurvey, setSelectedSurvey] = useState(null);
-    const [answers, setAnswers] = useState({});
     const [isLoading, setIsLoading] = useState(true);
-    const [showModal, setShowModal] = useState(false);
-    const [submitting, setSubmitting] = useState(false);
     const [error, setError] = useState(null);
+    const [participatedSurveyIds, setParticipatedSurveyIds] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -27,11 +24,25 @@ export const Participate = () => {
                 setIsLoading(false);
             }
         };
+
+        // Get participated survey IDs from localStorage
+        const loadParticipatedSurveys = () => {
+            const userId = localStorage.getItem("id");
+            const key = `surveyId_${userId}`;
+            const storedIds = JSON.parse(localStorage.getItem(key) || "[]");
+            setParticipatedSurveyIds(storedIds);
+        };
+
         fetchSurveys();
+        loadParticipatedSurveys();
     }, []);
 
-    const handleParticipateClick = (survey) => {
-        navigate(`/survey/response/${survey._id}`);
+    const handleParticipateClick = (surveyId) => {
+        navigate(`/survey/response/${surveyId}`);
+    };
+
+    const handleViewAnalyticsClick = (surveyId) => {
+        navigate(`/survey/analytics/${surveyId}`);
     };
 
     return (
@@ -50,23 +61,38 @@ export const Participate = () => {
                 </div>
             ) : (
                 <div className="survey-grid scrollbar">
-                    {surveys.map(survey => (
-                        <Card key={survey._id} className="survey-card" onClick={() => handleParticipateClick(survey)}>
-                            <CardContent>
-                                <Typography variant="h6" className="card-title">{survey.title}</Typography>
-                                <Typography variant="body2" className="card-text">
-                                    {survey.description || "No description available"}
-                                </Typography>
-                                <Button 
-                                    variant="outlined"
-                                    onClick={(e) => { e.stopPropagation(); handleParticipateClick(survey); }}
-                                    className="btn-participate"
-                                >
-                                    Participate
-                                </Button>
-                            </CardContent>
-                        </Card>
-                    ))}
+                    {surveys.map(survey => {
+                        const isParticipated = participatedSurveyIds.includes(survey._id);
+
+                        return (
+                            <Card key={survey._id} className="survey-card">
+                                <CardContent>
+                                    <Typography variant="h6" className="card-title">{survey.title}</Typography>
+                                    <Typography variant="body2" className="card-text">
+                                        {survey.description || "No description available"}
+                                    </Typography>
+                                    {isParticipated ? (
+                                        <Button
+                                        className="btn-participated"
+                                        onClick={() => handleViewAnalyticsClick(survey._id)}
+                                        // onClick={() => handleParticipateClick(survey._id)}
+                                    >
+                                        View Analytics
+                                    </Button>
+                                    
+                                    ) : (
+                                        <Button
+                                            variant="outlined"
+                                            onClick={() => handleParticipateClick(survey._id)}
+                                            className="btn-participate"
+                                        >
+                                            Participate
+                                        </Button>
+                                    )}
+                                </CardContent>
+                            </Card>
+                        );
+                    })}
                 </div>
             )}
         </div>

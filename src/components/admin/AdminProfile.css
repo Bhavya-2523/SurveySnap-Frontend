@@ -1,0 +1,259 @@
+/* ========== Container ========== */
+.admin-container {
+    background: #0e0e0e;
+    color: #ffffff;
+    min-height: 100vh;
+    padding: 2rem;
+    padding-bottom: 3rem;
+    font-family: 'Segoe UI', sans-serif;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #ff7700 #0e0e0e;
+    animation: fadeInContainer 1s ease-in-out;
+  }
+  
+  /* ========== Header ========== */
+  .admin-header {
+    background: #ff7700;
+    color: #fff;
+    font-size: 2.2rem;
+    font-weight: bold;
+    padding: 1.2rem 2rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: 0 6px 16px rgba(255, 119, 0, 0.4);
+    animation: slideInTop 1.1s ease-in-out;
+  }
+  
+  /* ========== Form ========== */
+  .admin-form {
+    background-color: #1a1a1a;
+    padding: 2rem;
+    padding-bottom: 3rem;
+    border-radius: 16px;
+    box-shadow: 0 0 12px rgba(255, 119, 0, 0.15);
+    max-height: 75vh;
+    overflow-y: auto;
+    animation: slideUp 1s ease-out;
+  }
+  
+  /* Section Titles */
+  .section-title {
+    color: #ffaa66;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    font-size: 1.15rem;
+    position: relative;
+    animation: fadeInTitle 1.5s ease-in-out, glowTitle 3s infinite alternate;
+  }
+  
+  .section-title::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 3px;
+    background: #ff7700;
+    bottom: -6px;
+    left: 0;
+    border-radius: 5px;
+  }
+  
+  /* Row Layout */
+  .form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    animation: fadeInRow 1.5s ease-in;
+  }
+  
+  /* Inputs, Selects, Textareas */
+  .form-input,
+  .form-select {
+    flex: 1;
+    padding: 0.8rem 1rem;
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    min-width: 200px;
+    animation: popIn 1s ease-in-out;
+  }
+  
+  .form-input::placeholder,
+  .form-select option {
+    color: #bbb;
+  }
+  
+  .form-input:focus,
+  .form-select:focus {
+    border-color: #ff7700;
+    box-shadow: 0 0 8px rgba(255, 119, 0, 0.7);
+    outline: none;
+  }
+  
+  textarea.form-input {
+    resize: vertical;
+    height: 100px;
+  }
+  
+  /* File Upload */
+  .file-upload {
+    flex: 2;
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    padding: 0.6rem;
+    color: #fff;
+    border-radius: 8px;
+    animation: fadeInRow 1.5s ease-in;
+    transition: background 0.3s ease;
+  }
+  
+  .file-upload:hover {
+    background-color: #333;
+  }
+  
+  .upload-btn {
+    flex: 1;
+    background-color: #ff7700;
+    border: none;
+    color: white;
+    font-weight: 600;
+    padding: 0.75rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+  
+  .upload-btn:hover {
+    background-color: #ff5500;
+    transform: scale(1.05);
+  }
+  
+  /* Submit Button */
+  .form-submit {
+    text-align: center;
+    margin-top: 2.5rem;
+    animation: popIn 1.8s ease;
+  }
+  
+  .submit-btn {
+    background: #ff7700;
+    color: white;
+    padding: 0.9rem 2.2rem;
+    border: none;
+    border-radius: 14px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.4s ease;
+  }
+  
+  .submit-btn:hover {
+    background-color: #ff4400;
+    transform: scale(1.08);
+  }
+  
+  /* ========== Scrollbar Styling (WebKit) ========== */
+.admin-container::-webkit-scrollbar,
+.admin-form::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.admin-container::-webkit-scrollbar-track,
+.admin-form::-webkit-scrollbar-track {
+  background: #0e0e0e;
+}
+
+.admin-container::-webkit-scrollbar-thumb,
+.admin-form::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #ff7700, #ff5500);
+  border-radius: 10px;
+}
+
+/* ========== Scrollbar Styling (Firefox) ========== */
+.admin-container,
+.admin-form {
+  scrollbar-width: thin;
+  scrollbar-color: #ff7700 #0e0e0e;
+}
+
+  /* ========== Animations ========== */
+  @keyframes fadeInContainer {
+    0% {
+      opacity: 0;
+      transform: scale(0.97);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes slideInTop {
+    from {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeInTitle {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes fadeInRow {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes popIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes glowTitle {
+    from {
+      text-shadow: 0 0 5px #ff7700;
+    }
+    to {
+      text-shadow: 0 0 15px #ffaa66;
+    }
+  }
+  

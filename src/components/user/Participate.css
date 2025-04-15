@@ -221,3 +221,22 @@
 .submit-button:hover {
     background-color: #ff4500;
 }
+
+/* Participated Button */
+.btn-participated {
+    background-color: #af5603c8!important;
+    color: #ffffff;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 8px;
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+    font-weight: bold;
+    font-size: 1rem;
+    text-transform: uppercase;
+    opacity: 0.85;
+    cursor: default;
+}
