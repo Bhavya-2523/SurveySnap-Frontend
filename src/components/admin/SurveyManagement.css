@@ -1,0 +1,217 @@
+/* General page styles */
+.survey-management {
+    padding: 20px;
+    background-color: #0e0e0e;
+    color: #ffffff;
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+    overflow-y: auto;
+    box-sizing: border-box;
+  }
+  
+  .dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .dashboard-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ff7700;
+    margin-bottom: 20px;
+  }
+  
+  /* Survey Table Styles */
+  .survey-list {
+    margin-top: 0;
+    padding: 0;
+    padding-bottom: 3rem;
+  }
+  
+  .survey-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 12px rgba(255, 119, 0, 0.15);
+  }
+  
+  .survey-table th,
+  .survey-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #333;
+    color: #f0f0f0;
+  }
+  
+  .survey-table th {
+    background-color: #1a1a1a;
+    color: #ffaa66;
+    font-weight: 600;
+  }
+  
+  .survey-table tr:hover {
+    background-color: #222;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Button Styles */
+  button {
+    background-color: #ff7700;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  button:hover {
+    background-color: #ff8c1a;
+    transform: translateY(-1px);
+  }
+  
+  button:focus {
+    outline: 2px solid #ff7700;
+    outline-offset: 2px;
+  }
+  
+  .action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  @media (min-width: 768px) {
+    .action-buttons {
+      flex-direction: row;
+    }
+  }
+  
+  /* Modal Overlay */
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(14, 14, 14, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.25s ease-in-out;
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background-color: #1a1a2e;
+    padding: 35px 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 16px rgba(255, 119, 0, 0.25);
+    width: 95%;
+    max-width: 600px;
+    color: #ffffff;
+  }
+  
+  .modal-content h2 {
+    color: #ff7700;
+    margin-bottom: 25px;
+    font-size: 26px;
+    text-align: center;
+  }
+  
+  /* Input fields */
+  .modal-content input,
+  .modal-content textarea {
+    width: 100%;
+    padding: 14px 16px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 1px solid #444;
+    background-color: #2b2b2b;
+    color: #ffffff;
+    font-size: 16px;
+    resize: vertical;
+    box-sizing: border-box;
+  }
+  
+  .modal-content input::placeholder,
+  .modal-content textarea::placeholder {
+    color: #aaaaaa;
+  }
+  
+  /* Modal buttons */
+  .modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 10px;
+  }
+  
+  .modal-buttons button {
+    flex: 1;
+    padding: 12px 0;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  
+  .modal-buttons button:first-child {
+    background-color: #ff7700;
+    color: #fff;
+  }
+  
+  .modal-buttons button:first-child:hover {
+    background-color: #e67300;
+  }
+  
+  .modal-buttons .cancel-btn {
+    background-color: #666;
+    color: #eee;
+  }
+  
+  .modal-buttons .cancel-btn:hover {
+    background-color: #444;
+  }
+  
+  /* Fade in animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Loading state */
+  .survey-management .loading {
+    font-size: 1.5rem;
+    text-align: center;
+    color: #ff7700;
+  }
+  
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #1a1a1a;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #ff7700;
+    border-radius: 6px;
+  }
+  

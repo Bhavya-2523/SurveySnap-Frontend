@@ -74,7 +74,7 @@ export const AdminSidebar = () => {
                 </li>
 
                 <li className="nav-item">
-                  <Link to="" className="nav-link" style={{ color: "#ff7700" }}>
+                  <Link to="/admin/SurveyManage" className="nav-link" style={{ color: "#ff7700" }}>
                     <i className="nav-icon bi bi-box-seam-fill" />
                     <p>
                       Survey Management 

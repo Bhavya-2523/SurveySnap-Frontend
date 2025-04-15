@@ -31,6 +31,7 @@ import { AdminSidebar } from './components/admin/AdminSidebar'
 import { AdminProfile } from './components/admin/AdminProfile'
 import AdminDashboard from './components/admin/AdminDashboard'
 import { UserManagement } from './components/admin/UserManagement'
+import { SurveyManagement } from './components/admin/SurveyManagement'
 
 
 function App() {
@@ -69,6 +70,7 @@ function App() {
           <Route path='profile' element={<AdminProfile/>}></Route>
           <Route path='dashboard' element={<AdminDashboard/>}></Route>
           <Route path='UserManage' element={<UserManagement/>}></Route>
+          <Route path='SurveyManage' element={<SurveyManagement/>}></Route>
 
         </Route>
         <Route path="/survey" element={<SurveySidebar />}>
