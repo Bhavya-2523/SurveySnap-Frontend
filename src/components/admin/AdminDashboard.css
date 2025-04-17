@@ -138,3 +138,45 @@
 .dashboard-content {
     scrollbar-gutter: stable;
 }
+.chart-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    height: 300px;
+    margin: 0 auto;
+  }
+  
+
+  .chart-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .chart {
+    flex: 1;
+    min-width: 300px;
+    max-width: 48%;
+  }
+  
+  .chart-wrapper {
+    position: relative;
+    width: 100%;
+    height: 300px;
+  }
+  .chart-fullwidth {
+    width: 100%;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: #1e1e1e;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(255, 119, 0, 0.2);
+  }
+  
+  .chart-fullwidth h3 {
+    color: #ffffff;
+    margin-bottom: 1rem;
+  }
+  
