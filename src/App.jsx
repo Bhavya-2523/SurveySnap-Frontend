@@ -32,6 +32,7 @@ import { AdminProfile } from './components/admin/AdminProfile'
 import AdminDashboard from './components/admin/AdminDashboard'
 import { UserManagement } from './components/admin/UserManagement'
 import { SurveyManagement } from './components/admin/SurveyManagement'
+import { Analytics } from './components/admin/Analytics'
 
 
 function App() {
@@ -71,6 +72,9 @@ function App() {
           <Route path='dashboard' element={<AdminDashboard/>}></Route>
           <Route path='UserManage' element={<UserManagement/>}></Route>
           <Route path='SurveyManage' element={<SurveyManagement/>}></Route>
+          <Route path='Analytics' element={<Analytics/>}></Route>
+          <Route path="analytics/:id" element={<ViewAnalytics />} />
+
 
         </Route>
         <Route path="/survey" element={<SurveySidebar />}>

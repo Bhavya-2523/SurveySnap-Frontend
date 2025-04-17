@@ -24,13 +24,11 @@ export const Login = () => {
     if (rememberedEmail && rememberFlag === "true") {
       setSavedEmail(rememberedEmail);
       setRememberMe(true);
-      setValue("email", rememberedEmail); // set form field value
+      setValue("email", rememberedEmail); // Pre-fill email field
     }
   }, [setValue]);
 
   const submitHandler = async (data) => {
-    data.roleId = "67c533d47b8ab59db2464e12";
-
     try {
       const res = await axios.post("/user/login", data);
       console.log("Response:", res.data);
@@ -56,14 +54,27 @@ export const Login = () => {
           transition: Bounce,
         });
 
-        localStorage.setItem("id", res.data.data._id);
-        localStorage.setItem("role", res.data.data.roleId.name);
+        const userData = res.data.data;
+        const role = userData.roleId?.name;
 
-        if (res.data.data.roleId.name === "USER") {
-          setTimeout(() => {
-            navigate("/user");
-          }, 3000);
-        }
+        // Store user session info
+        localStorage.setItem("id", userData._id);
+        localStorage.setItem("role", role);
+
+        // Navigate based on role
+        setTimeout(() => {
+          switch (role) {
+            case "admin":
+              navigate("/admin/dashboard");
+              break;
+            case "user":
+              navigate("/user");
+              break;
+           
+            default:
+              navigate("/dashboard");
+          }
+        }, 3000);
       }
     } catch (err) {
       const msg = err.response?.data?.message;
@@ -114,8 +125,7 @@ export const Login = () => {
       },
       pattern: {
         value: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/,
-        message:
-          "Password must include letters, numbers, and a special character.",
+        message: "Password must include letters, numbers, and a special character.",
       },
     },
   };
@@ -138,28 +148,14 @@ export const Login = () => {
         </h5>
 
         <form onSubmit={handleSubmit(submitHandler)}>
-          <ToastContainer
-            position="top-center"
-            autoClose={3000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick={false}
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-            theme="dark"
-            transition={Bounce}
-          />
+          <ToastContainer />
 
           {/* Email Input */}
           <div className="mb-3">
             <input
               type="email"
               defaultValue={savedEmail}
-              className={`form-control bg-transparent border border-white text-white ${
-                errors.email ? "is-invalid" : ""
-              }`}
+              className={`form-control bg-transparent border border-white text-white ${errors.email ? "is-invalid" : ""}`}
               placeholder="Email"
               {...register("email", validationSchema.EmailValidator)}
             />
@@ -172,16 +168,12 @@ export const Login = () => {
           <div className="mb-3">
             <input
               type="password"
-              className={`form-control bg-transparent border border-white text-white ${
-                errors.password ? "is-invalid" : ""
-              }`}
+              className={`form-control bg-transparent border border-white text-white ${errors.password ? "is-invalid" : ""}`}
               placeholder="Password"
               {...register("password", validationSchema.PasswordValidator)}
             />
             {errors.password && (
-              <div className="text-danger mt-1">
-                {errors.password.message}
-              </div>
+              <div className="text-danger mt-1">{errors.password.message}</div>
             )}
           </div>
 
@@ -224,7 +216,7 @@ export const Login = () => {
         </p>
       </div>
 
-      {/* Additional CSS for Styling */}
+      {/* Inline Styling */}
       <style>
         {`
           ::placeholder {

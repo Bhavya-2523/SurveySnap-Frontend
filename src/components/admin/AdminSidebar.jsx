@@ -83,10 +83,10 @@ export const AdminSidebar = () => {
                   </Link>
                   </li>
                 <li className="nav-item">
-                  <Link to="" className="nav-link" style={{ color: "#ff7700" }}>
+                  <Link to="/admin/analytics" className="nav-link" style={{ color: "#ff7700" }}>
                     <i className="nav-icon bi bi-box-seam-fill" />
                     <p>
-                      Analytics and Reports
+                      Analytics
                     </p>
                   </Link>
                   
@@ -98,11 +98,17 @@ export const AdminSidebar = () => {
 
         {/* Main Content */}
         <main
-          className="app-main"
-          style={{ flex: 1, overflowY: "auto", padding: "0px" }}
-        >
-          <Outlet />
-        </main>
+  className="app-main"
+  style={{
+    flex: 1,
+    overflowY: "auto",
+    padding: "0px",
+    backgroundColor: "black",  // Darker orange that pairs with #ff7700
+  }}
+>
+  <Outlet />
+</main>
+
       </div>
     </div>
   );
