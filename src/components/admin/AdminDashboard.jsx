@@ -133,11 +133,12 @@ export const AdminDashboard = () => {
     labels: ['Surveys', 'Responses'],
     datasets: [
       {
-        data: [stats.totalSurveys, stats.totalResponses],
+        data: [stats.totalSurveys, stats.totalResponses], // now the order matches
         backgroundColor: ['#ff7700', '#cc5b00'],
       },
     ],
   };
+  
 
   const pieChartOptions = {
     maintainAspectRatio: false,
@@ -145,6 +146,15 @@ export const AdminDashboard = () => {
       legend: {
         labels: {
           color: '#ffffff',
+        },
+      },
+      tooltip: {
+        callbacks: {
+          label: function (context) {
+            const label = context.label || '';
+            const value = context.raw || 0;
+            return `${label}: ${value}`;
+          },
         },
       },
     },
@@ -179,8 +189,39 @@ export const AdminDashboard = () => {
         <div className="charts">
         <div className="chart-fullwidth">
   <h3>Survey Growth Over Time</h3>
-  <Line data={surveyChartData} height={250} />
+  <div className="chart-wrapper">
+    <Line
+      data={surveyChartData}
+      options={{
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            labels: {
+              color: '#fff',
+            },
+          },
+        },
+        scales: {
+          x: {
+            ticks: {
+              color: '#ccc',
+              autoSkip: true,
+              maxRotation: 45,
+              minRotation: 30,
+            },
+          },
+          y: {
+            ticks: {
+              color: '#ccc',
+            },
+          },
+        },
+      }}
+    />
+  </div>
 </div>
+
 
 
           <div className="chart-row">

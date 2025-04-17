@@ -49,6 +49,13 @@ export const SurveySidebar = () => {
                 data-accordion="false"
               >
                 <li className="nav-item menu-open">
+                  <Link to="/survey/profile" className="nav-link active" style={{ color: "#ff7700" }}>
+                  <i className="nav-icon bi bi-file-earmark-plus" />
+
+                    <p>
+                      Profile
+                    </p>
+                  </Link>
                   <Link to="/survey/addSurvey" className="nav-link active" style={{ color: "#ff7700" }}>
                   <i className="nav-icon bi bi-file-earmark-plus" />
 

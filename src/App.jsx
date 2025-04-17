@@ -33,6 +33,8 @@ import AdminDashboard from './components/admin/AdminDashboard'
 import { UserManagement } from './components/admin/UserManagement'
 import { SurveyManagement } from './components/admin/SurveyManagement'
 import { Analytics } from './components/admin/Analytics'
+import HomePage from './components/common/HomePage1'
+import ContactPage from './components/common/Contact'
 
 
 function App() {
@@ -42,59 +44,50 @@ function App() {
   
   return (
    
-    <> 
-     <Routes>
-     <Route path="/1" element ={<LandingPage/>}></Route>
-     <Route path="/" element={<Home />} />
-
-      <Route path='/login' element={<Login/>}></Route>
-      <Route path='/login2' element={<Login2/>}></Route>
-      <Route path='/signup' element={<Signup/>}></Route>
-      <Route path='/signup2' element={<Signup2/>}></Route>
-      <Route path="/forgotpassword" element={<ForgotPassword/>}></Route>
-      <Route path="/resetpassword/:token" element ={<ResetPassword/>}></Route>
-    </Routes>  
-    <body class="layout-fixed sidebar-expand-lg bg-body-tertiary app-loaded sidebar-open">
-    <div className="app-wrapper">
-      {/* <UserSidebar></UserSidebar>\ */}
-
-      
+    <>
       <Routes>
-      <Route path="" element={<PrivateRoutes />}>
-        <Route path='/user' element={<UserSidebar/>}>
-          <Route path='profile' element={<UserProfile/>}></Route>
-        </Route>
-        {/* <Route path='/Demouser' element={<DemoSidebar/>}>
-          <Route path='profile' element={<DemoProfile/>}></Route>
-        </Route> */}
-        <Route path='/admin' element={<AdminSidebar/>}>
-          <Route path='profile' element={<AdminProfile/>}></Route>
-          <Route path='dashboard' element={<AdminDashboard/>}></Route>
-          <Route path='UserManage' element={<UserManagement/>}></Route>
-          <Route path='SurveyManage' element={<SurveyManagement/>}></Route>
-          <Route path='Analytics' element={<Analytics/>}></Route>
-          <Route path="analytics/:id" element={<ViewAnalytics />} />
+        {/* Public Routes */}
+        <Route path="/1" element={<LandingPage />} />
+        <Route path="/" element={<Home />} />
+        <Route path="home" element={<HomePage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/login2" element={<Login2 />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/signup2" element={<Signup2 />} />
+        <Route path="/forgotpassword" element={<ForgotPassword />} />
+        <Route path="/resetpassword/:token" element={<ResetPassword />} />
+        <Route path="/contact" element={<ContactPage/>} />
+        
+        {/* Private Routes */}
+        <Route path="" element={<PrivateRoutes />}>
+          <Route path="/user" element={<UserSidebar />}>
+            
+          </Route>
 
+          <Route path="/admin" element={<AdminSidebar />}>
+            <Route path="profile" element={<AdminProfile />} />
+            <Route path="dashboard" element={<AdminDashboard />} />
+            <Route path="UserManage" element={<UserManagement />} />
+            <Route path="SurveyManage" element={<SurveyManagement />} />
+            <Route path="Analytics" element={<Analytics />} />
+            <Route path="analytics/:id" element={<ViewAnalytics />} />
+          </Route>
 
-        </Route>
-        <Route path="/survey" element={<SurveySidebar />}>
-            <Route path="addsurvey" element={<CreateSurvey/>} />
-            <Route path="addsurvey2" element={<CreateSurvey2/>} />
-            <Route path="mysurveys" element ={<ViewMySurveys/>}></Route>
+          <Route path="/survey" element={<SurveySidebar />}>
+          <Route path="profile" element={<UserProfile />} />
+            <Route path="addsurvey" element={<CreateSurvey />} />
+            <Route path="addsurvey2" element={<CreateSurvey2 />} />
+            <Route path="mysurveys" element={<ViewMySurveys />} />
             <Route path="details/:id" element={<ViewDetails />} />
             <Route path="update/:id" element={<UpdateSurvey />} />
             <Route path="participate" element={<Participate />} />
-            {/* <Route path="response/:id" element={<Responding/>}></Route> */}
-            <Route path="response/:id" element={<Responding/>}></Route>
+            <Route path="response/:id" element={<Responding />} />
             <Route path="analytics/:id" element={<ViewAnalytics />} />
             <Route path="participated" element={<ParticipatedSurveys />} />
           </Route>
-      </Route>
+        </Route>
       </Routes>
-
-    </div>
-   </body>
-   </>
+    </>
 
   )
 }

@@ -1,0 +1,46 @@
+/* Apply styles only on the homepage */
+.homepage {
+    height: 100vh;
+    overflow-y: scroll; /* Force vertical scrollbar */
+    overflow-x: hidden;
+    background-color: #121212;
+  }
+  
+  /* Hardcoded orange scrollbar on homepage */
+  .homepage::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .homepage::-webkit-scrollbar-track {
+    background: #2c2c2c;
+  }
+  
+  .homepage::-webkit-scrollbar-thumb {
+    background-color: #ff7700;
+    border-radius: 4px;
+  }
+  
+  .homepage::-webkit-scrollbar-thumb:hover {
+    background-color: #ff8c1a;
+  }
+  
+  /* Feature card animation */
+  .homepage .feature-card {
+    transition: all 0.3s ease;
+  }
+  
+  .homepage .feature-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Responsive typography */
+  @media (max-width: 768px) {
+    .homepage .display-4 {
+      font-size: 2.5rem;
+    }
+  
+    .homepage .lead {
+      font-size: 1rem;
+    }
+  }
+  

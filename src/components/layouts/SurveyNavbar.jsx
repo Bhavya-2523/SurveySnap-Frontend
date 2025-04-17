@@ -67,14 +67,14 @@ export const SurveyNavbar = ({ toggleSidebar }) => {
         {/* Move "Home" and "Contact" to the right corner */}
         <ul className="navbar-nav ms-auto">
           <li className="nav-item d-none d-md-block">
-            <Link to="/" className="nav-link" style={{ color: "#ff7700" }}>
+            <Link to="/home" className="nav-link" style={{ color: "#ff7700" }}>
               Home
             </Link>
           </li>
           <li className="nav-item d-none d-md-block">
-            <a href="#" className="nav-link" style={{ color: "#ff7700" }}>
+            <Link to="/contact" className="nav-link" style={{ color: "#ff7700" }}>
               Contact
-            </a>
+            </Link>
           </li>
         </ul>
 
@@ -87,7 +87,7 @@ export const SurveyNavbar = ({ toggleSidebar }) => {
               role="button"
               style={{ color: "#ff7700" }}
             >
-              <i className="bi bi-search" />
+              {/* <i className="bi bi-search" /> */}
             </a>
           </li>
           <li className="nav-item">

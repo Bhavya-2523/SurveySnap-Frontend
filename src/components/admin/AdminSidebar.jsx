@@ -10,64 +10,54 @@ export const AdminSidebar = () => {
   };
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", height: "100vh" }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        height: "100vh",
+        overflow: "hidden", // 🚫 No scrollbars on the whole layout
+      }}
+    >
       {/* Navbar */}
       <AdminNavbar toggleSidebar={toggleSidebar} />
 
       {/* Sidebar and Main Content */}
-      <div style={{ display: "flex", flexDirection: "row", flex: 1 }}>
+      <div
+        style={{
+          display: "flex",
+          flex: 1,
+          overflow: "hidden", // 🚫 No scrollbars on layout area
+        }}
+      >
         {/* Sidebar */}
         <aside
           className={`app-sidebar shadow ${isSidebarOpen ? "open" : "d-none"}`}
           style={{
             width: "250px",
-            height: "100vh",
-            overflowY: "auto",
-            backgroundColor: "#282828", // Dark gray background
-            color: "#ff7700", // Orange text color
+            backgroundColor: "#282828",
+            color: "#ff7700",
             boxShadow: "2px 0 5px rgba(0, 0, 0, 0.1)",
+            flexShrink: 0,
+            overflow: "hidden", // 🚫 No scrollbars in sidebar
           }}
         >
-          
-          <div
-            style={{
-              marginRight: "-16px",
-              marginBottom: "-16px",
-              marginLeft: 0,
-              top: "-8px",
-              right: "auto",
-              left: "-8px",
-              width: "calc(100% + 16px)",
-              padding: 8,
-            }}
-          >
+          <div style={{ padding: "8px" }}>
             <nav className="mt-2">
-              <ul
-                className="nav sidebar-menu flex-column"
-                data-lte-toggle="treeview"
-                role="menu"
-                data-accordion="false"
-              >
+              <ul className="nav sidebar-menu flex-column" role="menu">
                 <li className="nav-item menu-open">
                   <Link to="/admin/profile" className="nav-link active" style={{ color: "#ff7700" }}>
                     <i className="nav-icon bi bi-speedometer" />
-                    <p>
-                      Profile
-                    </p>
+                    <p>Profile</p>
                   </Link>
                   <Link to="/admin/dashboard" className="nav-link active" style={{ color: "#ff7700" }}>
                     <i className="nav-icon bi bi-speedometer" />
-                    <p>
-                      Dashboard
-                    </p>
+                    <p>Dashboard</p>
                   </Link>
                   <ul className="nav nav-treeview">
                     <li className="nav-item">
                       <Link to="/admin/UserManage" className="nav-link active" style={{ color: "#ff7700" }}>
                         <i className="nav-icon bi bi-speedometer" />
-                        <p>
-                          User Management
-                        </p>
+                        <p>User Management</p>
                       </Link>
                     </li>
                   </ul>
@@ -76,20 +66,15 @@ export const AdminSidebar = () => {
                 <li className="nav-item">
                   <Link to="/admin/SurveyManage" className="nav-link" style={{ color: "#ff7700" }}>
                     <i className="nav-icon bi bi-box-seam-fill" />
-                    <p>
-                      Survey Management 
-                      
-                    </p>
+                    <p>Survey Management</p>
                   </Link>
-                  </li>
+                </li>
+
                 <li className="nav-item">
                   <Link to="/admin/analytics" className="nav-link" style={{ color: "#ff7700" }}>
                     <i className="nav-icon bi bi-box-seam-fill" />
-                    <p>
-                      Analytics
-                    </p>
+                    <p>Analytics</p>
                   </Link>
-                  
                 </li>
               </ul>
             </nav>
@@ -98,17 +83,16 @@ export const AdminSidebar = () => {
 
         {/* Main Content */}
         <main
-  className="app-main"
-  style={{
-    flex: 1,
-    overflowY: "auto",
-    padding: "0px",
-    backgroundColor: "black",  // Darker orange that pairs with #ff7700
-  }}
->
-  <Outlet />
-</main>
-
+          className="app-main"
+          style={{
+            flex: 1,
+            backgroundColor: "black",
+            overflow: "hidden", // 🚫 No scrollbars in main content
+            padding: 0,
+          }}
+        >
+          <Outlet />
+        </main>
       </div>
     </div>
   );

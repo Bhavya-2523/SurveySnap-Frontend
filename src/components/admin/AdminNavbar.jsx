@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const AdminNavbar = ({ toggleSidebar }) => {
 
@@ -67,14 +67,14 @@ export const AdminNavbar = ({ toggleSidebar }) => {
         {/* Move "Home" and "Contact" to the right corner */}
         <ul className="navbar-nav ms-auto">
           <li className="nav-item d-none d-md-block">
-            <a href="#" className="nav-link" style={{ color: "#ff7700" }}>
+            <Link to="/home" className="nav-link" style={{ color: "#ff7700" }}>
               Home
-            </a>
+            </Link>
           </li>
           <li className="nav-item d-none d-md-block">
-            <a href="#" className="nav-link" style={{ color: "#ff7700" }}>
+            <Link to="/contact" className="nav-link" style={{ color: "#ff7700" }}>
               Contact
-            </a>
+            </Link>
           </li>
         </ul>
 
@@ -87,7 +87,7 @@ export const AdminNavbar = ({ toggleSidebar }) => {
               role="button"
               style={{ color: "#ff7700" }}
             >
-              <i className="bi bi-search" />
+              
             </a>
           </li>
           <li className="nav-item">

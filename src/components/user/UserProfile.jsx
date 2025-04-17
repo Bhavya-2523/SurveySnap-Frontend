@@ -172,12 +172,12 @@ export const UserProfile = () => {
           </button>
         </div>
 
-        <div className="bottom-card">
+        {/* <div className="bottom-card">
           <h2>Account Security</h2>
           <div style={{ marginTop: '1rem' }}>
             <button className="primary-btn">Update Password</button>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

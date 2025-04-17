@@ -110,7 +110,7 @@ export const Signup= () => {
           theme: "dark",
           transition: Bounce,
         });
-        navigate("/login2");
+        navigate("/login");
       }
     } catch (error) {
       toast.error(error.response?.data?.message || "Registration failed", {
@@ -273,6 +273,7 @@ export const Signup= () => {
           .form-container {
             width: 380px;
             background-color: #282828;
+            box-shadow: 0px 0px 200px rgb(255,119, 0);
             max-height: 80vh;
             display: flex;
             flex-direction: column;

@@ -68,11 +68,11 @@ export const Login = () => {
               navigate("/admin/dashboard");
               break;
             case "user":
-              navigate("/user");
+              navigate("/survey/addsurvey");
               break;
            
             default:
-              navigate("/dashboard");
+              navigate("/survey/profile");
           }
         }, 3000);
       }

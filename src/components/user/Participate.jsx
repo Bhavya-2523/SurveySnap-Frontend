@@ -16,7 +16,8 @@ export const Participate = () => {
         const fetchSurveys = async () => {
             try {
                 const res = await axios.get('/survey/surveys');
-                setSurveys(res.data.data);
+                console.log(res)
+                setSurveys(res.data.surveys);
             } catch (error) {
                 console.error("Error fetching surveys:", error);
                 setError('Failed to load surveys. Please try again later.');
