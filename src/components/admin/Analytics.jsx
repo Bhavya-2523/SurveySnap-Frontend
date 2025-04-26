@@ -52,7 +52,7 @@ export const Analytics = () => {
     return (
         <div className="admin-analytics-container">
             <div className="analytics-scrollable-content">
-                <h1>Admin Reports & Analytics</h1>
+                <h1>Admin Analytics</h1>
 
                 <div className="overview-cards">
                     <div className="card">

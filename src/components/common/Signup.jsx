@@ -180,7 +180,7 @@ export const Signup= () => {
               <span style={{color:"red"}}>{errors.phone?.message}</span>
             </div>
 
-            <div className="mb-3">
+            {/* <div className="mb-3">
               <select
                 {...register("roleId", validationSchema.RoleValidator)}
                 className={`form-select custom-dropdown ${errors.roleId ? "is-invalid" : ""}`}
@@ -199,7 +199,7 @@ export const Signup= () => {
                 ))}
               </select>
               <span style={{color:"red"}}>{errors.roleId?.message}</span>
-            </div>
+            </div> */}
 
             <div className="mb-3">
               <input
@@ -246,7 +246,7 @@ export const Signup= () => {
             <div className="text-center mt-2">
               <small className="text-white">
                 Already a user?{" "}
-                <Link to="/login2" className="fw-bold" style={{color:"#FF7700"}}>
+                <Link to="/login" className="fw-bold" style={{color:"#FF7700"}}>
                   Log In
                 </Link>
               </small>

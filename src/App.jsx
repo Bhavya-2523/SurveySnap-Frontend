@@ -9,9 +9,7 @@ import { Route, Routes } from 'react-router-dom'
 import { UserProfile } from './components/user/UserProfile'
 import { Login } from './components/common/Login'
 import { Signup } from './components/common/Signup'
-import { Signup2 } from './components/common/signup2'
 import axios from 'axios'
-import { Login2 } from './components/common/Login2'
 import PrivateRoutes from "./hooks/PrivateRoutes";
 import LandingPage from "./components/common/LandingPage";
 import {SurveySidebar} from "./components/layouts/SurveySidebar"
@@ -21,7 +19,6 @@ import { ViewMySurveys } from './components/survey/ViewMySurveys'
 import { UpdateSurvey } from './components/survey/UpdateSurvey'
 import { ResetPassword } from './components/common/ResetPassword'
 import ForgotPassword from './components/common/ForgotPassword'
-import Home from './components/common/HomePage'
 import { Participate } from './components/user/Participate'
 import { Responding } from './components/user/Responding'
 import { ViewDetails } from './components/survey/ViewDetails'
@@ -39,7 +36,7 @@ import ContactPage from './components/common/Contact'
 
 function App() {
 
-  axios.defaults.baseURL = "http://localhost:3000"
+  axios.defaults.baseURL = "https://project-backend-g1ko.onrender.com"
   
   
   return (
@@ -48,12 +45,10 @@ function App() {
       <Routes>
         {/* Public Routes */}
         <Route path="/1" element={<LandingPage />} />
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="home" element={<HomePage />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/login2" element={<Login2 />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/signup2" element={<Signup2 />} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />
         <Route path="/resetpassword/:token" element={<ResetPassword />} />
         <Route path="/contact" element={<ContactPage/>} />
