@@ -15,7 +15,7 @@ export const UserManagement = () => {
   const fetchUsers = async () => {
     try {
       const res = await axios.get('/users');
-      const userData = Array.isArray(res.data.users) ? res.data.users : [];
+      const userData = Array.isArray(res.data.data) ? res.data.data : []; // Assuming `data` contains the users array.
       setUsers(userData);
     } catch (err) {
       console.error('Error fetching users:', err);

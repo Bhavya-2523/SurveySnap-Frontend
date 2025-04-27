@@ -9,6 +9,8 @@ export const Analytics = () => {
     const [answers, setAnswers] = useState([]);
     const [users, setUsers] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [userCount, setUserCount] = useState(0);  // This will store the count of users
+
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -24,12 +26,14 @@ export const Analytics = () => {
                 const surveyData = Array.isArray(surveyRes.data.surveys) ? surveyRes.data.surveys : [];
                 const questionData = Array.isArray(questionRes.data.data) ? questionRes.data.data : [];
                 const answerData = Array.isArray(answerRes.data.answers) ? answerRes.data.answers : [];
-                const userData = Array.isArray(userRes.data.users) ? userRes.data.users : [];
+                const userData = userRes.data;                 
+                console.log("Users data: ", userData);
 
                 setSurveys(surveyData);
                 setQuestions(questionData);
                 setAnswers(answerData);
-                setUsers(userData);
+                setUsers(userData.data); // Store full users data
+                setUserCount(userData.count); 
             } catch (err) {
                 console.error("Error fetching analytics data:", err);
             } finally {

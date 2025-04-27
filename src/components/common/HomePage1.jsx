@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 export const HomePage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const isLoggedIn = !!localStorage.getItem('token'); // Check if user is logged in
 
   const FeatureCard = ({ icon, title, description }) => (
     <div className="p-4 bg-black rounded shadow feature-card">
@@ -44,10 +45,13 @@ export const HomePage = () => {
               </span>
             </div>
 
-            <nav className="d-none d-md-flex align-items-center gap-4">
-              <Link to="/login" className="btn text-white" style={{ backgroundColor: '#ff7700' }}>Login</Link>
-              <Link to="/signup" className="btn text-white" style={{ backgroundColor: '#ff7700' }}>Signup</Link>
-            </nav>
+            {/* Show Login/Signup only if NOT logged in */}
+            {!isLoggedIn && (
+              <nav className="d-none d-md-flex align-items-center gap-4">
+                <Link to="/login" className="btn text-white" style={{ backgroundColor: '#ff7700' }}>Login</Link>
+                <Link to="/signup" className="btn text-white" style={{ backgroundColor: '#ff7700' }}>Signup</Link>
+              </nav>
+            )}
 
             <button
               className="d-md-none btn btn-dark text-light p-2"
@@ -102,7 +106,7 @@ export const HomePage = () => {
         </div>
       </section>
 
-      {/* Features */}
+      {/* Features Section */}
       <section id="features" className="py-5 bg-black text-white">
         <div className="container py-5">
           <div className="text-center mb-5">
@@ -135,7 +139,7 @@ export const HomePage = () => {
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* Testimonials Section */}
       <section id="testimonials" className="py-5 bg-dark text-white">
         <div className="container py-5">
           <div className="text-center mb-5">
@@ -225,6 +229,11 @@ export const HomePage = () => {
               &copy; {new Date().getFullYear()} SurveySnap. All rights reserved.
             </p>
           </div>
+          
+            <p className="text-secondary small mb-0">
+               Developed by Bhavya Patel
+            </p>
+          
         </div>
       </footer>
     </div>

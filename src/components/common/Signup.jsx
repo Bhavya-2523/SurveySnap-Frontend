@@ -95,10 +95,17 @@ export const Signup= () => {
     }
   };
 
-  const submitHandler = async(data) => {
+  const submitHandler = async (data) => {
     try {
-      const res = await axios.post("/user", data);
-      if(res.status === 201){
+      // Set the roleId to the "User" role (as per the roles array)
+      const userRoleId = roles.find(role => role.name === "User").id;
+      const requestData = {
+        ...data,
+        roleId: userRoleId, // Automatically set role to "User"
+      };
+
+      const res = await axios.post("/user", requestData);
+      if (res.status === 201) {
         toast.success('Registration Successful!', {
           position: "top-center",
           autoClose: 5000,
@@ -119,7 +126,6 @@ export const Signup= () => {
       });
     }
   };
-
   return (
     <div className="d-flex justify-content-center align-items-center vh-100 form-page" style={{ backgroundColor: "#141414" }}>
       <div className="d-flex p-4 rounded text-white form-container overflow-hidden">

@@ -47,7 +47,7 @@ export const AdminDashboard = () => {
           axios.get('/answer/answers'),
         ]);
 
-        const totalUsers = usersRes.data.data;
+        const totalUsers = usersRes.data.count;
         const surveys = surveysRes.data.surveys;
         const answers = answersRes.data.answers;
 
