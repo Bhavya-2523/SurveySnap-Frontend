@@ -37,6 +37,7 @@ import ContactPage from './components/common/Contact'
 function App() {
 
   axios.defaults.baseURL = "https://project-backend-g1ko.onrender.com"
+  // axios.defaults.baseURL = "http://localhost:3000"
   
   
   return (

@@ -1,3 +1,4 @@
+/* Container */
 .participate-container {
     padding: 2rem;
     background-color: #121212;
@@ -9,6 +10,7 @@
     overflow: hidden;
 }
 
+/* Title */
 .title {
     text-align: center;
     margin-bottom: 2rem;
@@ -19,6 +21,7 @@
     flex-shrink: 0;
 }
 
+/* Spinner */
 .spinner-container {
     display: flex;
     justify-content: center;
@@ -26,6 +29,11 @@
     height: 60vh;
 }
 
+.spinner-border {
+    color: #ff7700;
+}
+
+/* Survey Grid */
 .survey-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -52,9 +60,9 @@
     border-radius: 10px;
 }
 
-/* Card Styling */
+/* Survey Card */
 .survey-card {
-    background-color: #1e1e1e !important;
+    background-color: #1e1e1e;
     border-radius: 12px;
     padding: 1.5rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -69,155 +77,149 @@
     text-align: left;
 }
 
-.survey-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(255, 119, 0, 0.3);
-}
-
-.survey-card .MuiCardContent-root {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    padding-bottom: 1rem !important;
-    flex-grow: 1;
-}
-
+/* Card Title */
 .card-title {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     font-weight: bold;
-    color: #ff7700;
-    margin: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    color: #fff;
 }
 
+/* Card Date */
+.card-date {
+    color: #515551;
+}
+
+/* Card Text */
 .card-text {
-    color: #ac9e9e;
-    font-size: 1rem;
-    line-height: 1.4;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    flex-grow: 1;
-    margin: 0.5rem 0 !important;
+    color: #a0a0a0;
+    font-size: 0.9rem;
+    line-height: 1.5;
 }
 
-/* Participate Button */
-.btn-participate,
-.btn-participated {
-    background-color: #ff7700;
-    color: #ffffff;
-    border: none;
-    padding: 0.6rem 1.5rem;
+/* Badge */
+.survey-badge {
+    background-color: #b36620;
+    color: #fff;
+    padding: 0.5rem 1rem;
     border-radius: 8px;
-    margin-top: 1rem;
-    align-self: center;
-    transition: background 0.3s ease;
-    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+/* Buttons */
+.btn-custom {
+    width: 60%;
+    padding: 10px;
     font-weight: bold;
-    font-size: 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+    border: none;
+}
+
+.btn-participate {
+    background-color: #ff7700;
+    color: #fff;
 }
 
 .btn-participate:hover {
-    background-color: #ff4500;
+    background-color: #e06400;
+    transform: scale(1.05);
 }
 
-.btn-participated {
-    background-color: #af5603c8 !important;
-    opacity: 0.85;
-    cursor: default;
+.btn-analytics {
+    background-color: #007bff;
+    color: #fff;
 }
 
-/* Modal Styling */
-.modal-content {
+.btn-analytics:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Modal */
+.image-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background-color: #1e1e1e;
-    border: 1px solid #ff7700;
+    padding: 20px;
     border-radius: 12px;
+    box-shadow: 0 0 20px rgba(255, 119, 0, 0.5);
+    z-index: 9999;
+    width: 80%;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow: auto;
+    text-align: center;
 }
 
-.modal-header {
-    border-bottom: 1px solid #262626;
-    padding: 1.5rem;
-}
-
-.modal-title {
-    font-size: 1.5rem;
-    color: #ff7700;
-}
-
-.modal-body {
-    max-height: 60vh;
-    overflow-y: auto;
-    padding: 1.5rem;
-}
-
-.modal-footer {
-    border-top: 1px solid #262626;
-    padding: 1rem 1.5rem;
-}
-
-/* Question Styling */
-.question-item {
-    margin-bottom: 1.5rem;
-    padding: 1.5rem;
-    background-color: #262626;
+.modal-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    max-height: 500px;
     border-radius: 8px;
-    transition: background-color 0.2s ease;
 }
 
-.question-item:hover {
-    background-color: #2e2e2e;
-}
-
-/* Form Styling */
-.form-label {
-    font-size: 1rem;
-    margin-bottom: 0.75rem;
-    display: block;
-    color: #fff;
-}
-
-.form-control {
-    background-color: #2e2e2e;
-    border: 1px solid #3e3e3e;
-    color: #fff;
-    padding: 0.75rem;
-    border-radius: 6px;
-}
-
-.form-control:focus {
-    background-color: #2e2e2e;
-    border-color: #ff7700;
-    box-shadow: 0 0 0 0.2rem rgba(255, 119, 0, 0.25);
-}
-
-.form-check {
-    margin-bottom: 0.5rem;
-}
-
-.form-check-label {
-    color: #fff;
-}
-
-.form-check-input:checked {
-    background-color: #ff7700;
-    border-color: #ff7700;
-}
-
-/* Submit Button */
-.submit-button {
-    padding: 0.75rem 2rem;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    border-radius: 8px;
-    background-color: #ff7700;
-    color: #fff;
+.modal-close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
     border: none;
-    transition: background 0.3s ease;
+    color: #ff7700;
+    font-size: 1.5rem;
+    cursor: pointer;
 }
 
-.submit-button:hover {
-    background-color: #ff4500;
+/* Responsive Design */
+@media (max-width: 768px) {
+    .participate-container {
+        padding: 1rem;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .survey-grid {
+        grid-template-columns: 1fr;
+        padding: 0.5rem;
+        max-height: none;
+    }
+
+    .survey-card {
+        padding: 1rem;
+        min-height: 180px;
+    }
+
+    .card-title {
+        font-size: 1.1rem;
+    }
+
+    .card-text {
+        font-size: 0.85rem;
+    }
+
+    .btn-custom {
+        width: 80%;
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+
+    .image-modal {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .modal-image {
+        max-height: 300px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .survey-grid {
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    }
 }
